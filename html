@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft VPN Connect</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #121212;
+            color: white;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background: #1e1e1e;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        button {
+            background: #4CAF50;
+            color: white;
+            padding: 15px;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 5px;
+            margin: 10px;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        .disconnect {
+            background: #d9534f;
+        }
+        .disconnect:hover {
+            background: #c9302c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Join My Minecraft Server</h1>
+        <p>Step 1: Connect to the VPN</p>
+        <button id="connectVPN">Connect to VPN</button>
+        <button id="disconnectVPN" class="disconnect" style="display:none;">Disconnect VPN</button>
+        <p>Step 2: Click below to join Minecraft!</p>
+        <button onclick="joinMinecraft()">Join Minecraft</button>
+    </div>
+
+    <script>
+        function connectVPN() {
+            alert("Connecting to VPN..."); // Simulate VPN connection
+            document.getElementById('connectVPN').style.display = 'none';
+            document.getElementById('disconnectVPN').style.display = 'inline-block';
+        }
+
+        function disconnectVPN() {
+            alert("Disconnecting from VPN..."); // Simulate VPN disconnection
+            document.getElementById('connectVPN').style.display = 'inline-block';
+            document.getElementById('disconnectVPN').style.display = 'none';
+        }
+
+        function joinMinecraft() {
+            let serverIP = "5.59.174.17"; // Your IP address
+            let serverPort = "19132"; // Default Minecraft Bedrock port
+            window.location.href = `minecraft://?addExternalServer=MyServer|${serverIP}:${serverPort}`;
+        }
+
+        document.getElementById("connectVPN").addEventListener("click", connectVPN);
+        document.getElementById("disconnectVPN").addEventListener("click", disconnectVPN);
+    </script>
+</body>
+</html>
